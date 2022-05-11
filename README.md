@@ -1,3 +1,10 @@
+# Themeing disabled Figma-linux
+
+Figma recently released a Dark theme for Figma. Figma-linux overrides this theme to be the light theme regardless, so I disabled themeing, mostly. On the other hand Figma-linux themeing breaks certain elements in the default Light theme anyway.
+
+
+> Follow the **Building from Source** section, read the notes
+
 # <img src="https://raw.githubusercontent.com/ChugunovRoman/figma-linux/master/resources/icons/128x128.png" width="32"> Figma electron app (unofficial)
 
 
@@ -108,6 +115,12 @@ sudo dnf install figma-linux-*.x86_64.rpm
 
 ## Building from source
 
+> This project breaks on Node v18, use v16
+
+> Modify `./config/builder.json` to only build an appimage, the pacman option's broken (or I'm missing some dependency, can't be bothered to check and the readme doesn't mention it)
+
+> Unless you wanna package a development environment, run the npm scripts in the following order (after installing dependencies, of course) `build`, `start`, `builder`. I don't know *why* you have to do it this way but whatever
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/Figma-Linux/figma-linux
@@ -125,6 +138,9 @@ To run Figma-linux from npm in dev mode execute this:
 ```bash
 npm run dev
 ```
+
+> For some reason, to see some changes, not only do you have to re-run `npm run dev`, you also have to re-run `npm run build` before that
+
 Aside from that, you can also run:
 
 - ```npm run build``` to built the app for production
